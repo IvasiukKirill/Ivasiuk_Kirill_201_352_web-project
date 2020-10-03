@@ -1,7 +1,7 @@
 ﻿#include <iostream>
-#include <limits.h>
+#include <limits>
 #include <bitset>
-#include<float.h>
+
 
 using std::cout;
 using std::cin;
@@ -38,11 +38,10 @@ int main()
 	cout << "\nHex:" << hex << number << endl;
 	cout << "Boolean: " << bool(number) << endl;
 	cout << "Char: " << char(number) << endl;
-	cout << "Char: " << char(number) << endl;
 
 	cout << "4.";
 
-	float a, b;
+	int a, b;
 	cout << "\nEnter coeff a * x = b" << endl;
 	cout << "a: ";
 	cin >> a;
@@ -50,17 +49,19 @@ int main()
 	cin >> b;
 	cout << a << "*x = " << b << endl;
 	cout << "x = " << b << "/" << a << endl;
-	cout << "x = " << b / a << endl;
+	cout << "x = " << double(b) / a << endl;
+
+
 
 	cout << "5.";
 
-	float x1, x2;
+	int x1, x2;
 	cout << "\nВведите координаты отрезка на прямой:" << endl;
 	cout << "x1:";
 	cin >> x1;
 	cout << "x2:";
 	cin >> x2;
-	cout << "\nСередина отрезка находится в точке с координатой " << (x1 + x2) / 2 << endl;
+	cout << "\nСередина отрезка находится в точке с координатой " << double(x1 + x2) / 2 << endl;
 	return 0;
 
 }
