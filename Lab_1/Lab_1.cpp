@@ -38,7 +38,6 @@ int main()
 	cout << "\nHex:" << hex << number << endl;
 	cout << "Boolean: " << bool(number) << endl;
 	cout << "Char: " << char(number) << endl;
-	cout << "Char: " << char(number) << endl;
 
 	cout << "4.";
 
