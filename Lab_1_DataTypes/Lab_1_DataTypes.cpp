@@ -13,7 +13,7 @@ using std::hex;
 int main()
 {
 	setlocale(LC_ALL, "Russian");
-	cout << "1." << std::endl;
+	cout << "1." << endl;
 
 	cout << "Ivasiuk Kirill Evgenyevich,201-351" << endl;
 
@@ -21,7 +21,7 @@ int main()
 
 	cout << "min int =" << INT_MIN << ", max_int = " << INT_MAX << ". size of int = " << sizeof(int) << endl;
 	cout << "min unsigned int = 0" << ", max unsigned int = " << UINT_MAX << ". size of unsigned int = " << sizeof(unsigned) << endl;
-	cout << "min short = " << SHRT_MIN << ", max short = " << SHRT_MAX << ". size of short int = " << sizeof(short) << endl;
+	cout << "min \"short\" = " << SHRT_MIN << ", max short = " << SHRT_MAX << ". size of short int = " << sizeof(short) << endl;
 	cout << "min unsigned short = 0" << ", max unsigned short = " << USHRT_MAX << ". size of unsigned short int = " << sizeof(unsigned short) << endl;
 	cout << "min long long = " << LLONG_MIN << ", max long long= " << LLONG_MAX << ". size of long long = " << sizeof(long long) << endl;
 	cout << "min double = " << DBL_MIN << ", max double = " << DBL_MAX << ". size of double = " << sizeof(double) << endl;

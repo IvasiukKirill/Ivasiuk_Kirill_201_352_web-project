@@ -6,12 +6,12 @@ using std::cin;
 using std::endl;
 int fact(int n)
 {
-	int resultn=1;
+	int result=1;
 	for (int i = 1;i <= n;i++) 
 	{
-		resultn = resultn * i;
+		result = result * i;
 	}
-	return resultn;
+	return result;
 }
 int main()
 
@@ -20,8 +20,8 @@ int main()
 	int choice = 0; // в этой переменной будет храниться выбор пользователя
 	while (true) // непрерывный цикл
 	{
-		std::cout << "Что вы хотите выполнить? \n" << "1. задание 1\n" << "2. задание 2\n" << "3. задание 3\n" << "4. выход\n";
-		std::cin >> choice;
+		cout << "Что вы хотите выполнить? \n" << "1. задание 1\n" << "2. задание 2\n" << "3. задание 3\n" << "4. выход\n";
+		cin >> choice;
 		switch (choice)
 		{
 		case 1:
