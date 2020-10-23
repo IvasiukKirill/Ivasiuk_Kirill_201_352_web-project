@@ -1,235 +1,157 @@
 ﻿#include <iostream>
+using namespace std;
 
-using std::cout;
-using std::cin;
-using std::endl;
-using std::swap;
+const size_t len = 1000;
 
-
-void PrintArr(int* a, int n)
-{
-    cout << "Массив в отсортированном виде: ";
-    for (int i = 0; i < n; i++)
-    {
-        cout << a[i] << "  ";
-    }
-    cout << endl;
-}
-
-
-void PrintArr(char* a, int n)
-{
-    cout << "Массив в отсортированном виде: ";
-    for (int i = 0; i < n; i++)
-    {
-        cout << a[i] << "  ";
-    }
-    cout << endl;
-}
-
-
-
-void BoubleSort(int* a, int n)
-{
-    for (int i = 0; i < n; i++)
-    {
-        for (int j = 0; j < n - 1 - i; j++)
-        {
-            if (a[j] > a[j + 1])
-            {
-                swap(a[j], a[j + 1]);
+void BoubleSort(int* arr, const size_t len) {
+    for (int i = 0; i < len; i++) {
+        for (int j = 0; j < len - i - 1; j++) {
+            if (arr[j] > arr[j + 1]) {
+                int buff = arr[j + 1];
+                arr[j + 1] = arr[j];
+                arr[j] = buff;
             }
         }
     }
 }
 
+template < typename T >
+void PrintArray(T* arr, const size_t n) {
+    for (int i = len - n; i < len; i++) {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+}
 
-void CountSort(char* a, int n)
-{
-    int const Len = 26;
-    int Buf[Len] = { 0 };
-
+void CountSort(char* arr, const size_t len) {
+    const int k = 26;
+    int counter[k] = { 0 };
+    for (int i = 0; i < len; i++) {
+        counter[int(arr[i] - 'a')]++;
+    }
+    int pos = 0;
     int j = 0;
-
-    for (int i = 0; i < n; i++)
-    {
-        j = int(a[i] - 'a');
-        Buf[j]++;
+    while (j <= k) {
+        if (counter[j] > 0) {
+            arr[pos] = char(int('a') + j);
+            pos++;
+            counter[j]--;
+        }
+        else {
+            j++;
+        }
     }
+}
+
+void Merge(int arr[], const int left, const int mid, const int right) {
+    const int size1 = mid - left + 1;
+    const int size2 = right - mid;
+    int up[len / 2], down[len - len / 2];
+
+    for (int i = 0; i < size1; i++) {
+        up[i] = arr[left + i];
+    }
+    for (int i = 0; i < size2; i++) {
+        down[i] = arr[mid + i + 1];
+    }
+
     int i = 0;
-    j = 0;
-    while (j <= Len) {
-        if (Buf[j] > 0) {
-            a[i] = char(int('a') + j);
-            i++;
-            Buf[j]--;
-        }
-        else {
-            j++;
-        }
-    }
-}
+    int j = 0;
+    int k = left;
 
-
-
-void Merge(int arr[], int* d, int begin, int end)
-{
-    int i = begin;
-    int t = 0;
-    int sred = begin + (end - begin) / 2;
-    int j = sred + 1;
-
-    while (i <= sred && j <= end) {
-        if (arr[i] <= arr[j]) {
-            d[t] = arr[i];
+    while (i < size1 && j < size2) {
+        if (up[i] <= down[j]) {
+            arr[k] = up[i];
             i++;
         }
         else {
-            d[t] = arr[j];
+            arr[k] = down[j];
             j++;
         }
-        t++;
+        k++;
     }
-    while (i <= sred) {
-        d[t] = arr[i]; i++; t++;
+
+    while (i < size1) {
+        arr[k] = up[i];
+        i++;
+        k++;
     }
-    while (j <= end) {
-        d[t] = arr[j]; j++; t++;
+
+    while (j < size2) {
+        arr[k] = down[j];
+        j++;
+        k++;
     }
-    for (i = 0; i < t; i++)
-        arr[begin + i] = d[i];
 }
 
-void MergeSort(int* arr, int* d, int left, int right)
-{
-    for (int i = 0; i < 10; i++) {
-        cout << arr[i] << "  ";
+void MergeSort(int arr[], const int left, const int right) {
+    if (left < right) {
+        int mid = (left + right) / 2;
+        MergeSort(arr, left, mid);
+        MergeSort(arr, mid + 1, right);
+
+        Merge(arr, left, mid, right);
     }
-    cout << endl;
-    int  t;
-    if (left < right)
-        if (right - left == 1) {
-            if (arr[right] < arr[left]) {
-                t = arr[left];
-                arr[left] = arr[right];
-                arr[right] = t;
+}
+
+int main() {
+    setlocale(LC_ALL, "Russian");
+    while (true) {
+        int number;
+        cout << "Выберите команду:\n"
+            << "1.Сортировка пузырьком\n"
+            << "2.Сортировка подсчетом\n"
+            << "3.Сортировка слиянием\n"
+            << "4.Выход\n";
+        cin >> number;
+
+
+        if (number == 1) {
+            int n = 0;
+            cout << "Размер массива: ";
+            cin >> n;
+
+            int arr[len] = { 0 };
+            for (int i = 0; i < n; i++) {
+                cin >> arr[i];
             }
+
+            BoubleSort(arr, len);
+            PrintArray(arr, n);
         }
-        else {
-            MergeSort(arr, d, left, left + (right - left) / 2);
-            MergeSort(arr, d, left + (right - left) / 2 + 1, right);
-            Merge(arr, d, left, right);
+
+        if (number == 2) {
+            int n = 0;
+            cout << "Размер массива: ";
+            cin >> n;
+
+            char arr[len] = { ' ' };
+            for (int i = 0; i < n; i++) {
+               cin >> arr[i];
+            }
+
+            CountSort(arr, len);
+            PrintArray(arr, n);
         }
-}
 
+        if (number == 3) {
+            int n = 0;
+            cout << "Размер массива: ";
+            cin >> n;
 
+            int arr[len] = { 0 };
+            for (int i = 0; i < n; i++) {
+                cin >> arr[i];
+            }
 
+            MergeSort(arr, 0, len - 1);
+            PrintArray(arr, n);
+        }
 
-
-
-
-
-void Task1()
-{
-    int n;   //Длина массива
-    int i = 0;
-    int arr[1000];
-    cout << "Введите кол-во элементов массива: ";
-    cin >> n;
-    cout << "Введите " << n << " чисел для заполнения массива: " << endl;
-    for (i = 0; i < n; i++)
-    {
-        cin >> arr[i];
-    }
-    BoubleSort(arr, n);
-    PrintArr(arr, n);
-}
-
-
-void Task2()
-{
-    int n;   //Длина массива
-    int i = 0;
-    char arr[1000] = { 0 };
-    cout << "Введите кол-во элементов массива: ";
-    cin >> n;
-    cout << "Введите " << n << " чисел для заполнения массива: " << endl;
-    for (i = 0; i < n; i++)
-    {
-        cin >> arr[i];
-    }
-    CountSort(arr, n);
-    PrintArr(arr, n);
-}
-
-
-
-
-
-
-void Task3()
-{
-
-    int n = 0;
-    int arr[1000] = { 0 };
-    int d[1000] = { 0 };
-    cout << "Введите размер массива: ";
-    cin >> n;
-    for (int i = 0; i < n; i++)
-    {
-       cin >> arr[i];
-    }
-     
-
-
-      for (int i = 0; i < n; i++)
-      {
-         cout << arr[i] << "  ";
-      }
-        cout << endl;
-}
-
-
-
-
-int main()
-{
-    while (true)
-    {
-        setlocale(LC_ALL, "Russian");
-        int input;
-
-        cout << "1. Пузырьковая сортировка" << endl;
-        cout << "2. Сортировка подсчетом" << endl;
-        cout << "3. Сортировка слиянием" << endl;
-        cout << "4. Выход" << endl;
-        cout << "Выбор: ";
-        cin >> input;
-        switch (input) {
-        case 1:
-            Task1();
-            break;
-        case 2:
-            Task2();
-            break;
-        case 3:
-            Task3();
-            break;
-        case 4:
-            cout << "Good bye!";
+        if (number == 4) {
             return 0;
-            break;
-        default:
-            cout << "Неверно выбрана цифра" << endl;
-            break;
         }
     }
-    return 0;
 }
-
-
-
-
-
 
 
