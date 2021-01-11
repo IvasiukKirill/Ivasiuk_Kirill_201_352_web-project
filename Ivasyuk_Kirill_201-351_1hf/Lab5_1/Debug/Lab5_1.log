@@ -1,0 +1,6 @@
+﻿  Lab5_1.cpp
+  matr.cpp
+E:\Лабы\Ivasyuk_Kirill_201-351_1hf\Lab5_1\matr.cpp(84,47): warning C4244: инициализация: преобразование "double" в "unsigned int", возможна потеря данных
+E:\Лабы\Ivasyuk_Kirill_201-351_1hf\Lab5_1\matr.cpp(119,46): warning C4244: инициализация: преобразование "double" в "unsigned int", возможна потеря данных
+  Создание кода...
+  Lab5_1.vcxproj -> E:\Лабы\Ivasyuk_Kirill_201-351_1hf\Lab5_1\Debug\Lab5_1.exe
