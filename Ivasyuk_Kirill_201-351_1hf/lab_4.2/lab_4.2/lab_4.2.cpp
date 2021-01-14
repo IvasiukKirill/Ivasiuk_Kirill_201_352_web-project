@@ -129,7 +129,7 @@ int main()
     while (true)
     {
         setlocale(LC_ALL, "Russian");
-        system("color 0E");
+        
 
         int input;
 
