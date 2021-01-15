@@ -31,34 +31,9 @@ public:
 		delete[] _array;
 	}
 
-	void input() {
-		if (this->_cols == this->_rows)
-		{
-			for (int i = 0, j = 0; i < this->_rows; i++, j++)
-			{
-				cin >> this->_array[i][j];
-			}
-			for (int i = 0, j = 1; j < this->_cols; i++, j++)
-			{
-				cin >> this->_array[i][j];
-			}
-			for (int i = 1, j = 0; i < this->_rows; i++, j++)
-			{
-				cin >> this->_array[i][j];
-			}
 
-		}
-
-
-	}
-	void print() {
-		for (int i = 0; i < _rows; i++) {
-			for (int j = 0; j < _cols; j++) {
-				std::cout << _array[i][j] << " ";
-			}
-			std::cout << "\n";
-		}
-	}
+	void input();
+	void print();
 	static Matrix sum(const Matrix& m1, const Matrix& m2) { //метод класса
 		if (m1._rows == m2._rows && m1._cols == m2._cols) {
 			Matrix* res = new Matrix(m1._rows, m1._cols);
@@ -72,24 +47,12 @@ public:
 			return *res;
 		}
 	}
-	void sum(const Matrix& m1) { // метод экз класса
-		if (m1._rows == this->_rows && m1._cols == this->_cols) {
-
-			for (int i = 0; i < this->_rows; i++) {
-				for (int j = 0; j < this->_cols; j++) {
-					this->_array[i][j] += m1._array[i][j];
-				}
-			}
-		}
-	}
-	int GetRows()
-	{
-		return _rows;
-	}
-	int GetCols()
-	{
-		return _cols;
-	}
+	void sum(const Matrix& m1); 
+		
+	int GetRows();
+	
+	int GetCols();
+	
 	friend Matrix operator- (const Matrix& m1, const Matrix& m2)// бинар  
 	{
 		Matrix* res = new Matrix(m1._rows, m1._cols);
@@ -100,7 +63,7 @@ public:
 		}
 		return *res;
 	}
-	friend Matrix operator+ (const Matrix& m1, const Matrix& m2)// бинар  
+	friend Matrix  operator+ (const Matrix& m1, const Matrix& m2)// бинар  
 	{
 		Matrix* res = new Matrix(m1._rows, m1._cols);
 		for (int i = 0; i < res->_rows; i++) {
@@ -120,7 +83,7 @@ public:
 		}
 		return *res;
 	}
-	friend Matrix operator* (const Matrix& m1, const int m2)// унар
+	friend Matrix  operator* (const Matrix& m1, const int m2)// унар
 	{
 		Matrix* res = new Matrix(m1._rows, m1._cols);
 		for (int i = 0; i < res->_rows; i++) {
@@ -130,12 +93,12 @@ public:
 		}
 		return *res;
 	}
-	Matrix operator<< (const Matrix& m1)
+	Matrix  operator<< (const Matrix& m1)
 	{
 		print();
 		return m1;
 	}
-	Matrix operator>> (const Matrix& m1)
+	Matrix  operator>> (const Matrix& m1)
 	{
 		input();
 		return m1;

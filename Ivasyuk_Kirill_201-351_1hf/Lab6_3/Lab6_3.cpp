@@ -4,17 +4,16 @@
 using namespace std;
 bool check(int n)
 {
-	if (n % 2 == 0 or n % 3 == 0 or n % 5 == 0)
-		return true;
-	else
+	if (n %  2 != 0 and n % 3 !=0 and n % 5 != 0 or n % 7 == 0 or n % 11 == 0 or n % 13 == 0)
 		return false;
+	else
+		return true;
 }
 int main()
 {
-	queue<int>q;
+	queue<int>q;//структура данных-очередь(LILO)
 	int n;
 	cin >> n;
-	int length = INT_MAX;
 	int i = 1;
 	while (q.size() < n)
 	{
@@ -22,7 +21,7 @@ int main()
 		if (check(i))
 			q.push(i);
 	}
-	while (!q.empty())
+	while (!q.empty())//вывод очереди
 	{
 		cout << q.front() << endl;
 		q.pop();
