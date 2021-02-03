@@ -1,40 +1,41 @@
 ﻿#include <iostream>
+#include <unordered_set>
 #include <set>
+#include <string>
+#include <fstream>
 using namespace std;
 
-struct Answer
-{
-	int id;
-	string answ;
-};
-
-static bool operator<(const Answer a1, const Answer a2)
-{
-	return a1.id < a2.id;
-}
-
-int main()
-{
-	set<Answer> s1 = set<Answer>();
-
-	Answer a1 = { 1, "sss" };
-	Answer a2 = { 2, "ddd" };
-	Answer a3 = { 3, "aaa" };
-	Answer a4 = { 4, "fff" };
-	Answer a5 = { 5, "qqq" };
-
-
-	s1.insert(a1);
-	s1.insert(a5);
-	s1.insert(a3);
-	s1.insert(a2);
-	s1.insert(a4);
-	s1.insert(a2);
-	s1.insert(a3);
-
-	for (auto i : s1)
-	{
-		cout << i.answ << endl;
-	}
-
+int main() {
+    setlocale(LC_ALL, "rus");
+    int key = 0;
+    ifstream stud_answers;
+    ofstream st_answers;
+    string mails = "stud_answers.txt";
+    stud_answers.open(mails);
+    st_answers.open(mails, ofstream::app);
+    set<string> answers;
+    string opfile;
+    while (!stud_answers.eof()) {
+        opfile = "";
+        getline(stud_answers, opfile);
+        answers.insert(opfile);
+        key++;
+    }
+    string name;
+    cout << "Для прохождения теста введите майл: ";
+    cin >> name;
+    if (answers.find(name) != answers.end()) {
+        cout << "Ну актер. Ну актереще!!!\n";
+    }
+    else {
+        answers.insert(name);
+        cout << "Можете приступить к тесту)\n";
+        st_answers << name << endl;
+        string Love;
+        cout << "Любите C++? Ответ да или нет: ";
+        cin >> Love;
+        if (Love == "yes") cout << "Молодец)";
+        else cout << "Не молодец!";
+    }
+    return 0;
 }

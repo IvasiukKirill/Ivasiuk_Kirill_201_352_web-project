@@ -19,7 +19,7 @@ int main()
             m1[n]++;
         else key = false;
     }
-
+    
     int sum = 0;
     for (auto i : m1)
     {
