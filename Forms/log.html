@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="logstyles.css" />
+    <meta charset="utf-8" />
+    <title>Форма аутефнтификации</title>
+  </head>
+  <body>
+    <div id="block">
+      <form action=" https://httpbin.org/post" method="post">
+        <p>Логин</p>
+        <input type="login" name="log" maxlength="12" placeholder="username" />
+        <p>Пароль</p>
+        <input
+          type="password"
+          name="pass"
+          maxlength="12"
+          placeholder="password"
+        /><br />
+        Запомнить меня <input type="checkbox" name="" /><br />
+        <button>войти</button>
+      </form>
+    </div>
+  </body>
+</html>
