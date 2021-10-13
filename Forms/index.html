@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" type="text/css" href="logstyles.css" />
+    <meta charset="utf-8" />
+    <title>Форма аутефнтификации</title>
+</head>
+
+<body>
+    <div id="block">
+        <form action="https://httpbin.org/post" method="post">
+            <p>Логин</p>
+            <input type="text" name="log" maxlength="12" placeholder="username">
+            <p>Пароль</p>
+            <input type="password" name="pass" maxlength="12" placeholder="password"><br />
+            <label for="zap">Запомнить меня</label>
+            <input type="checkbox" name="zap" id="zap"><br>
+            <button type="submit">Авторизация</button>
+
+
+        </form>
+        <form action="feedback.html">
+            <button>
+                Форма обратной связи
+            </button>
+
+        </form>
+    </div>
+</body>
+
+</html>
