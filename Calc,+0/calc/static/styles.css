@@ -1,0 +1,58 @@
+html, body, main {
+    height: 100%;
+    background-image: url(digits.jpg);
+}
+
+
+main {
+    display: flex;
+}
+
+.calc-container {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    border: 5px solid rgba(252, 0, 0, 0.596);
+    border-radius: 15px;
+}
+
+.buttons {
+    display: flex;
+    width: 450px;
+}
+
+.digits {
+    display: flex;
+    flex-wrap: wrap;
+    width: 60%;
+    justify-content: center;
+}
+
+.other {
+    display: flex;
+    flex-wrap: wrap;
+    width: 40%;
+    justify-content: center;
+}
+
+.key {
+    margin: 10px;
+    font-size: 40px;
+    width: 60px;
+    height: 60px;
+    border-radius: 15px;
+    border: 1px solid rgba(252, 0, 0, 0.171);
+    background-color: rgba(252, 0, 0, 0.349);
+    cursor: pointer;
+}
+
+.screen {
+    height: 60px;
+    background-color: rgb(255, 255, 255);
+    border: 3px solid rgba(252, 0, 0, 0.377);
+    border-radius: 15px;
+    margin: 10px;
+    text-align: right;
+    font-size: 40px;
+    color: rgba(252, 0, 0, 0.5);
+}
