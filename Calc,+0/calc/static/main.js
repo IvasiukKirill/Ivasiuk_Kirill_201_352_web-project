@@ -98,39 +98,32 @@ function compile(str) {
 // (https://ru.wikipedia.org/wiki/Обратная_польская_запись#Вычисления_на_стеке).
 
 function evaluate(str) {
-    let mas = str.split(' ');
-    let buffer = [];
-    let result = Number(mas[0]);
-    for (let i = 1; i < mas.length; i++) {
-        if (mas[i] == '+') {
-            for (let j = 0; j < buffer.length; j++) {
-                result += buffer[j];
-            }
-            buffer = []
-        }
-        else if (mas[i] == '-') {
-            for (let j = 0; j < buffer.length; j++) {
-                result -= buffer[j];
-            }
-            buffer = []
-        }  
-        else if (mas[i] == '*') {
-            for (let j = 0; j < buffer.length; j++) {
-                result *= buffer[j];
-            }
-            buffer = []
-        }
-        else if (mas[i] == '/') {
-            for (let j = 0; j < buffer.length; j++) {
-                result /= buffer[j];
-            }
-            buffer = []
-        }  
-        else buffer.push(Number(mas[i]));
-    }
-    return result;
-}
+    let polish = tokenize(compile(str));
+    let stack = [];
+    for (const el of polish) {
+        if (isNumeric(el)) {
+            stack.push(Number(el));
+        } else {
+            if (el == "+") stack.push(stack.pop() + stack.pop());
 
+            else if (el == "-") {
+                let a = stack.pop();
+                let b = stack.pop();
+                stack.push(b - a);
+            }
+
+            else if (el == "*") stack.push(stack.pop() * stack.pop());
+
+            else if (el == "/") {
+                let a = stack.pop();
+                let b = stack.pop();
+                stack.push(b / a);
+            }
+        }
+    }
+
+    return stack.pop().toFixed(2);
+}
 // Функция clickHandler предназначена для обработки 
 // событий клика по кнопкам калькулятора. 
 // По нажатию на кнопки с классами digit, operation и bracket
