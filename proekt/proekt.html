@@ -139,7 +139,7 @@
             <section class="container mt-4" id="To choose">
                
                 <h2 class="pb-2 text-center">Choosing a food company</h2>
-                <form class="container bchoose">
+                <div class="container bchoose">
                     <div class="row">
                         <div class="col-lg-6 mt-2">
                             <label class="form-label" for="district">Administrative District</label>
@@ -166,15 +166,17 @@
                         <div class="col-lg-3 mt-2">
                             <label class="form-label" for="discount">Social discounts</label>
                             <select id="discount" class="form-select" aria-label="Default select example">
-                                <option selected>Not selected</option>
+                                <option selected >Not selected</option>
+                                <option value="1">Yes</option>
+                                <option value="0">No</option>
                             </select>
                         </div>
                         <div class="col-lg-6 d-flex justify-content-end">
-                            <button type="submit" class="btn bg-info mt-4 w-50 ">Find</button>
+                            <button id="find" type="submit" class="btn bg-info mt-4 w-50" >Find</button>
                         </div>
                     </div>
                     
-                </form>
+                </div>
             </section>
             <section class="container mt-4">
                 <table class="table table-striped table-bchooseed restaurant-table">
@@ -221,10 +223,10 @@
                         <div class="card mb-4 rounded-3 shadow-sm text-center">
                             <img class="card-image" src="images/scale_1200 (1).jfif">
                             <div class="card-header py-3">
-                                <h4 class="my-0 fw-normal">Сет 1</h4>
+                                <h4 class="my-0 fw-normal" >Сет 1</h4>
                             </div>
                             <div class="card-body">
-                                <p class="fs-5"> куку.</p>
+                                <p class="fs-5 "> куку.</p>
                                 <h1 class="card-title pricing-card-title">999 руб</h1>
                                 <div class="d-flex justify-content-around mt-4">
                                     <button type="button" class="btn btn-lg btn-outline-info">-</button>
