@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,6 +13,7 @@
     </script>
     <title>In Russia with food</title>
 </head>
+
 <body class="body bg-warning">
     <header class="header">
         <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-info">
@@ -199,16 +201,16 @@
             <thead>
                 <tr>
                     <th scope="col">Name</th>
-                    <th scope="col">Type</th>
                     <th scope="col">Address</th>
+                    <th scope="col">Type</th>
                     <th scope="col">Action</th>
                 </tr>
             </thead>
             <tbody>
                 <tr class="d-none" id="tr-template">
                     <th class="restaurant-name" scope="row">Name</th>
-                    <td class="restaurant-type">Type</td>
                     <td class="restaurant-addr text-muted">Address</td>
+                    <td class="restaurant-type text-center">Type</td>
                     <td>
                         <form>
                             <input type="hidden" name="restaurant-id" class="restaurant-id">
@@ -232,223 +234,48 @@
             </ul>
         </nav>
     </section>
-    <section class="container border-top border-bottom mt-4">
-        <h2 class="text-center">
-            Menu
-        </h2>
-        <div class="row">
-            <div class="feature col-lg-4">
-                <div class="card mb-4 rounded-3 shadow-sm text-center bg-info">
-                    <img class="card-image" src="images/eda-pervye-blyuda-607511.jpg">
-                    <div class="card-header py-3">
-                        <h4 class="my-0 fw-normal">Set 1</h4>
-                    </div>
+    <section class="menu container py-3" id="menu">
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+            <div class="col" id="card">
+                <div class="card text-center">
+                    <img class="card-img-top">
                     <div class="card-body">
-                        <p class="fs-5 "> delicious soap</p>
-                        <h5 class="card-title pricing-card-title">999 руб</h5>
-                        <div class="d-flex justify-content-around mt-4">
-                            <button type="button" class="btn btn-lg btn-outline-warning">-</button>
-                            <span class="fs-3">0</span>
-                            <button type="button" class="btn btn-lg btn-outline-warning">+</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="feature col-lg-4">
-                <div class="card mb-4 rounded-3 shadow-sm text-center bg-info">
-                    <img class="card-image" src="images/fonstola.ru-387232.jpg">
-                    <div class="card-header py-3">
-                        <h4 class="my-0 fw-normal">Set 2</h4>
-                    </div>
-                    <div class="card-body">
-                        <p class="fs-5"> borsh`</p>
-                        <h5 class="card-title pricing-card-title">999 руб</h5>
-                        <div class="d-flex justify-content-around mt-4">
-                            <button type="button" class="btn btn-lg btn-outline-warning">-</button>
-                            <span class="fs-3">0</span>
-                            <button type="button" class="btn btn-lg btn-outline-warning">+</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="feature col-lg-4">
-                <div class="card mb-4 rounded-3 shadow-sm text-center bg-info">
-                    <img class="card-image" src="images/sup-pervoe-bliudo-gribnoi-tsvety.jpg">
-                    <div class="card-header py-3">
-                        <h4 class="my-0 fw-normal">Set 3</h4>
-                    </div>
-                    <div class="card-body">
-                        <p class="fs-5">ne borsh`</p>
-                        <h5 class="card-title pricing-card-title">999 руб</h5>
-                        <div class="d-flex justify-content-around mt-4">
-                            <button type="button" class="btn btn-lg btn-outline-warning">-</button>
-                            <span class="fs-3">0</span>
-                            <button type="button" class="btn btn-lg btn-outline-warning">+</button>
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some discount example text to build on the card title and make up the bulk
+                            of
+                            the card's content.</p>
+                        <h6>100&#8381;</h6>
+                        <div class="dish-count d-flex justify-content-center">
+                            <button class="btn btn-primary">-</button>
+                            <input type="number" name="count" value="0" class="form-control w-25 text-center">
+                            <button class="btn btn-primary">+</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="feature col-lg-4">
-                <div class="card mb-4 rounded-3 shadow-sm text-center bg-info">
-                    <img class="card-image" src="images/anypics.ru-53630.jpg">
-                    <div class="card-header py-3">
-                        <h4 class="my-0 fw-normal">Set 4</h4>
-                    </div>
-                    <div class="card-body">
-                        <p class="fs-5"> omlet</p>
-                        <h5 class="card-title pricing-card-title">999 руб</h5>
-                        <div class="d-flex justify-content-around mt-4">
-                            <button type="button" class="btn btn-lg btn-outline-warning">-</button>
-                            <span class="fs-3">0</span>
-                            <button type="button" class="btn btn-lg btn-outline-warning">+</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="feature col-lg-4">
-                <div class="card mb-4 rounded-3 shadow-sm text-center bg-info">
-                    <img class="card-image" src="images/1920x1080_1554217_[www.ArtFile.ru].jpg">
-                    <div class="card-header py-3">
-                        <h4 class="my-0 fw-normal">Set 5</h4>
-                    </div>
-                    <div class="card-body">
-                        <p class="fs-5">pizza</p>
-                        <h5 class="card-title pricing-card-title">999 руб</h5>
-                        <div class="d-flex justify-content-around mt-4">
-                            <button type="button" class="btn btn-lg btn-outline-warning">-</button>
-                            <span class="fs-3">0</span>
-                            <button type="button" class="btn btn-lg btn-outline-warning">+</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="feature col-lg-4">
-                <div class="card mb-4 rounded-3 shadow-sm text-center bg-info">
-                    <img class="card-image" src="images/salat-iazyk-olive.jpg">
-                    <div class="card-header py-3">
-                        <h4 class="my-0 fw-normal">Set 6</h4>
-                    </div>
-                    <div class="card-body">
-                        <p class="fs-5">oliv`e</p>
-                        <h5 class="card-title pricing-card-title">999 руб</h5>
-                        <div class="d-flex justify-content-around mt-4">
-                            <button type="button" class="btn btn-lg btn-outline-warning">-</button>
-                            <span class="fs-3">0</span>
-                            <button type="button" class="btn btn-lg btn-outline-warning">+</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="feature col-lg-4">
-                <div class="card mb-4 rounded-3 shadow-sm text-center bg-info">
-                    <img class="card-image"
-                        src="images/1565237803_0_160_3072_1888_1920x0_80_0_0_cc242712e87ca8563b0233a3729de5dc.jpg">
-                    <div class="card-header py-3">
-                        <h4 class="my-0 fw-normal">Set 7</h4>
-                    </div>
-                    <div class="card-body">
-                        <p class="fs-5"> miso soup</p>
-                        <h5 class="card-title pricing-card-title">999 руб</h5>
-                        <div class="d-flex justify-content-around mt-4">
-                            <button type="button" class="btn btn-lg btn-outline-warning">-</button>
-                            <span class="fs-3">0</span>
-                            <button type="button" class="btn btn-lg btn-outline-warning">+</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="feature col-lg-4">
-                <div class="card mb-4 rounded-3 shadow-sm text-center bg-info">
-                    <img class="card-image" src="images/look.com.ua-359702.jpg">
-                    <div class="card-header py-3">
-                        <h4 class="my-0 fw-normal">Set 8</h4>
-                    </div>
-                    <div class="card-body">
-                        <p class="fs-5">tuchki</p>
-                        <h5 class="card-title pricing-card-title">0 руб</h5>
-                        <div class="d-flex justify-content-around mt-4">
-                            <button type="button" class="btn btn-lg btn-outline-warning">-</button>
-                            <span class="fs-3">0</span>
-                            <button type="button" class="btn btn-lg btn-outline-warning">+</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="feature col-lg-4">
-                <div class="card mb-4 rounded-3 shadow-sm text-center bg-info">
-                    <img class="card-image" src="images/61561858-piletina-kijev-piletina.jpg">
-                    <div class="card-header py-3">
-                        <h4 class="my-0 fw-normal">Set 9</h4>
-                    </div>
-                    <div class="card-body">
-                        <p class="fs-5"> kotleti po kievski</p>
-                        <h5 class="card-title pricing-card-title">999 руб</h5>
-                        <div class="d-flex justify-content-around mt-4">
-                            <button type="button" class="btn btn-lg btn-outline-warning">-</button>
-                            <span class="fs-3">0</span>
-                            <button type="button" class="btn btn-lg btn-outline-warning">+</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="feature col-lg-4">
-                <div class="card mb-4 rounded-3 shadow-sm text-center bg-info">
-                    <img class="card-image" src="images/1488318645.png">
-                    <div class="card-header py-3">
-                        <h4 class="my-0 fw-normal">Set 10</h4>
-                    </div>
-                    <div class="card-body">
-                        <p class="fs-5"> shaurma</p>
-                        <h5 class="card-title pricing-card-title">999 руб</h5>
-                        <div class="d-flex justify-content-around mt-4">
-                            <button type="button" class="btn btn-lg btn-outline-warning">-</button>
-                            <span class="fs-3">0</span>
-                            <button type="button" class="btn btn-lg btn-outline-warning">+</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <div class="heading-line mx-auto mt-3"></div>
     </section>
-    <section class="container">
-        <div class="text-center">
-            <h2>Additional features</h2>
-        </div>
-        <form>
-            <div class="row align-items-center">
-                <div class="form-check">
-                    <input class="form-check-input my-4 mx-4" type="checkbox" value="" id="student">
-                    <label class="form-check-label my-3" for="student">I am a student at the university</label>
-                </div>
+    <section class="order container py-3">
+        <h2>Дополнительные опции</h2>
+        <form class="d-flex flex-column">
+            <div class="my-2 mx-4">
+                <label for="company" data-bs-toggle="tooltip" data-bs-placement="top"
+                    title="Количество всех заказанных сетов увеличивается в 5 раза. Цена увеличивается на 250%.">В пять
+                    раз больше</label>
+                <input type="checkbox" name="company" id="company">
             </div>
-            <div class="row align-items-center">
-                <div class="form-check">
-                    <input class="form-check-input mx-4" type="checkbox" value="" id="company">
-                    <label class="form-check-label" for="company">For company</label>
-                </div>
+            <div class="my-2 mx-4">
+                <label for="SocialPrivil data-bs-toggle=" tooltip" data-bs-placement="top"
+                    title="SocialPrivil">Социальная скидка</label>
+                <input type="checkbox" name="discount" id="discount">
             </div>
         </form>
-    </section>
-    <section class="container border my-4 fs-4 py-3">
-        <div class="row">
-            <div class="col-6">
-                <strong>
-                    <span>Total: </span>
-                    <span>0 </span>
-                    <span>rub.</span>
-                </strong>
-            </div>
-            <div class="col-6 d-flex justify-content-end" id="Basket">
-                <button class="btn bg-info" type="button" data-bs-toggle="modal" data-bs-target="#cartModal">Place an
-                    order</button>
-            </div>
+        <div class="sum d-flex justify-content-between border border-dark p-2 mb-3">
+            <h2 id="sum">Total: 0&#8381;</h2>
+            <button class="btn btn-primary" id="place-order">Place an order</button>
         </div>
+        <div class="heading-line mx-auto"></div>
     </section>
     <div class="modal  fade bg-info" role="document" id="cartModal" aria-hidden="true">
         <div class="modal-dialog modal-lg">
@@ -459,124 +286,121 @@
                 </div>
                 <div class="modal-body">
                     <h4>Order items</h4>
-                    <div class="card mb-3 template">
-                        <div class="card-body">
-                            <div class="d-flex justify-content-between">
-                                <div class="d-flex flex-row align-items-center">
-                                    <div>
-                                        <img src="images/" class="img-fluid rounded-3" alt="" width="">
-                                    </div>
-                                    <div class="ms-3">
-                                        <h5></h5>
-                                    </div>
-                                </div>
-                                <div class="d-flex align-items-center">
-                                    <h5 class="fw-normal mb-0">&#8381;</h5>
-                                </div>
-                                <div class="d-flex align-items-center">
-                                    <h5 class="mb-0">&#8381;</h5>
-                                </div>
+                    <ul class="list-group">
+                        <li class="list-group-item d-flex justify-content-between">
+                            <div class="d-flex">
+                                <img>
+                                <h6>Name</h6>
+                            </div>
+                            <div>
+                                <p>2x100&#8381;</p>
+                            </div>
+                            <div>
+                                <h6>200&#8381;</h6>
+                            </div>
+                        </li>
+                    </ul>
+                    <div id="options">
+                        <h5>Additional options</h5>
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <p>В пять раз больше:</p>
+                                <p>Social discounts</p>
+                            </div>
+                            <div id="options-container">
                             </div>
                         </div>
                     </div>
-                    <h4>Additional options</h4>
-                    <ul class="list-unstyled">
-                        <li class="d-flex justify-content-between">
-                            <div>
-                                <span>Student at the university</span>
+                    <div class="mx-2">
+                        <h5>Information about the company</h5>
+                        <div class="row">
+                            <div class="col">
+                                <p>Name</p>
                             </div>
-                            <div>
-                                <span>-10%</span>
+                            <div class="col">
+                                <p id="modal-name"></p>
                             </div>
-                        </li>
-                    </ul>
-                    <h4>Enterprise information</h4>
-                    <ul class="list-unstyled">
-                        <li class="d-flex justify-content-between">
-                            <div>
-                                <p>Company name:</p>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <p>Administrative District</p>
                             </div>
-                            <div>
-                                <p></p>
+                            <div class="col">
+                                <p id="modal-AU"></p>
                             </div>
-                        </li>
-                        <li class="d-flex justify-content-between">
-                            <div>
-                                <p>Administrative area:</p>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <p>Area</p>
                             </div>
-                            <div>
-                                <p></p>
+                            <div class="col">
+                                <p id="modal-district"></p>
                             </div>
-                        </li>
-                        <li class="d-flex justify-content-between">
-                            <div>
-                                <p>District:</p>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <p>Address</p>
                             </div>
-                            <div>
-                                <p></p>
+                            <div class="col">
+                                <p id="modal-address"></p>
                             </div>
-                        </li>
-                        <li class="d-flex justify-content-between">
-                            <div>
-                                <p>Address:</p>
-                            </div>
-                            <div>
-                                <p class="text-muted"></p>
-                            </div>
-                        </li>
-                        <li class="d-flex justify-content-between">
-                            <div>
-                                <p>:</p>
-                            </div>
-                            <div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
                                 <p>Rating</p>
                             </div>
-                        </li>
-                    </ul>
-                    <h4>Delivery</h4>
-                    <form>
-                        <div class="row mb-4">
-                            <label class="form-label col-lg-4" for="delivery-zone">Delivery area:</label>
-                            <div class="col-lg-8">
-                                <select id="delivery-zone" class="form-select" aria-label="delivery-zone">
-                                    <option selected>First area</option>
-                                    <option>Second area</option>
-                                    <option>Third area</option>
+                            <div class="col">
+                                <p id="modal-rating"></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mx-2">
+                        <h5>Delivery</h5>
+                        <div class="row">
+                            <div class="col">
+                                <p>Delivery area:</p>
+                            </div>
+                            <div class="col">
+                                <select class="form-select" name="" id="">
+                                    <option value="">The first zone</option>
                                 </select>
                             </div>
                         </div>
-                        <div class="row mb-4">
-                            <label class="form-label col-lg-4" for="delivery-address">Address:</label>
-                            <div class="col-lg-8">
-                                <textarea id="delivery-address" class="form-control" rows="3"></textarea>
+                        <div class="row">
+                            <div class="col">
+                                <p>Delivery address:</p>
+                            </div>
+                            <div class="col">
+                                <textarea class="form-control"></textarea>
                             </div>
                         </div>
-                        <div class="row mb-4">
-                            <label class="form-label col-lg-4" for="delivery-address">Delivery cost:</label>
-                            <div class="col-lg-8">
-                                <span> 0 rub. </span>
+                        <div class="row">
+                            <div class="col">
+                                <p>Shipping cost:</p>
+                            </div>
+                            <div class="col">
+
                             </div>
                         </div>
-                        <div class="row mb-4">
-                            <label class="form-label col-lg-4" for="delivery-address">Name of the recipient:</label>
-                            <div class="col-lg-8">
-                                <input type="text" class="form-control" id="fio" placeholder="Last Name First Name">
+                        <div class="row">
+                            <div class="col">
+                                <p>Recipient's full name:</p>
                             </div>
-                        </div>
-                    </form>
-                    <div class="row mb-4 mt-5">
-                        <div class="col-lg-4">
-                            <h4>Total:</h4>
-                        </div>
-                        <div class="col-lg-8">
-                            <h4>rub.</h4>
+                            <div class="col">
+                                <input class="form-control" type="text" name="" id="">
+                            </div>
                         </div>
                     </div>
+                    <div class="mx-4">
+                        <h5>Total:</h5>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-info" id="confirm">Confirm</button>
+                    </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn btn-info">Confirm</button>
-                </div>
+
             </div>
         </div>
     </div>
@@ -604,5 +428,10 @@
             </div>
         </div>
     </footer>
+    <script src="./main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+    </script>
 </body>
+
 </html>

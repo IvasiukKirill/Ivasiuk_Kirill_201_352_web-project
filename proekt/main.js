@@ -1,3 +1,4 @@
+"use strict"
 let apiKey = "718962b4-44fd-4416-bdb1-1a6e94d61a38";
 let apiUrl = "http://exam-2022-1-api.std-900.ist.mospolytech.ru/api/restaurants";
 let restaurantsJson;
@@ -31,10 +32,6 @@ function renderRecords(records) {
 }
 
 
-window.onload = function () {
-  getRestaurants().then(renderRecords);
-  document.querySelector("#find").onclick = filterRecords;
-};
 
 
 
@@ -103,3 +100,85 @@ function getFilter() {
     document.querySelector("#district").appendChild(qwe);
   }
 }
+
+function renderSets() {
+    let dish = document.querySelector("#card");
+    let dishParent = dish.closest(".row");
+
+    for (let i = 0; i < 9; i++) {
+        let newDish = document.createElement("div");
+        newDish.className = "col";
+        newDish.innerHTML = dish.innerHTML;
+        dishParent.appendChild(newDish);
+    }
+
+    let dishes = document.querySelectorAll(".card");
+
+    let xhr = new XMLHttpRequest();
+    xhr.open("GET", "http://161.97.92.112:30005/api/sets");
+    xhr.responseType = "json";
+    xhr.onload = function () {
+        let data = this.response;
+        for (let i = 0; i < data.length; i++) {
+            dishes[i].querySelector("img").src = data[i]["img"];
+            dishes[i].querySelector("h5").innerHTML = data[i]["name"];
+            dishes[i].querySelector("p").innerHTML = data[i]["text"];
+            dishes[i].querySelector("h6").innerHTML = filterRecords[i]["set_" + (i + 1).toString()] + "&#8381;";
+        }
+        filterRecords = data;
+    }
+    xhr.send();
+}
+
+function renderModal(count, options) {
+    let setsList = document.querySelector(".list-group");
+    let pattern = document.querySelector(".list-group-item.d-flex.justify-content-between").innerHTML;
+    setsList.innerHTML = "";
+
+    for (let i = 0; i < count.length; i++) {
+        if (count[i] != 0) {
+            let set = document.createElement("li");
+            set.classList = "list-group-item d-flex justify-content-between";
+            set.innerHTML = pattern;
+
+            count[i] = options[0] ? count[i] * 2 : count[i];
+
+            set.querySelector("img").src = `./img/${i + 1}.jpg`;
+            set.querySelectorAll("h6")[0].innerHTML = setsBase[i].name;
+            set.querySelector("p").innerHTML = count[i].toString() + "x" + filteredBase[currentRestaurant]["set_" + (i + 1).toString()] + "&#8381;";
+            if (options[0]) {
+                set.querySelectorAll("h6")[1].innerHTML = count[i] / 5 * filteredBase[currentRestaurant]["set_" + (i + 1).toString()] * 2.5 + "&#8381;"
+            }
+            else { 
+                set.querySelectorAll("h6")[1].innerHTML = count[i] * filteredBase[currentRestaurant]["set_" + (i + 1).toString()] + "&#8381;"; 
+            }
+
+            setsList.append(set);
+        }
+    }
+
+    let optionsContainer = document.querySelector("#options-container");
+    optionsContainer.innerHTML = "";
+
+    let firsOption = document.createElement("p");
+    firsOption.innerHTML = options[0] ? "-10%" : "Нет";
+    optionsContainer.appendChild(firsOption);
+
+    let secondOption = document.createElement("p");
+    secondOption.innerHTML = options[1] ? "+250% and x5 of sets" : "Нет";
+    optionsContainer.appendChild(secondOption);
+
+    document.querySelector("#modal-name").innerHTML = filteredBase[currentRestaurant].name;
+    document.querySelector("#modal-AU").innerHTML = filteredBase[currentRestaurant].admArea;
+    document.querySelector("#modal-district").innerHTML = filteredBase[currentRestaurant].district;
+    document.querySelector("#modal-address").innerHTML = filteredBase[currentRestaurant].address;
+    document.querySelector("#modal-rating").innerHTML = filteredBase[currentRestaurant].rate;
+}
+
+
+window.onload = function () {
+  getRestaurants().then(renderRecords);
+  document.querySelector("#find").onclick = filterRecords;
+  renderSets();
+  renderModal(count, options);
+};
