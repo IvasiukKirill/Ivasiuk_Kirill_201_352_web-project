@@ -1,0 +1,18 @@
+{% extends 'base.html'%}
+
+{% block content %}
+<h1>Ввод номера телефона</h1> 
+    <form class="needs-validation" method="POST" novalidate >
+        <div class="mb-3 position-relative">
+            <label for="phones" class="form-label">Номер телефона</label>
+            <input class="form-control {{input_class}}" type="exit" name="phones" id="phones" value="{{ request.form.get('phones', '') }}" required >
+            <span class="input-group-text" value = "        ">{{ result }}</span>
+            {% if error_msg %}
+            <div class="invalid-tooltip">
+                {{error_msg}}
+            </div>
+            {% endif %}
+        </div>
+        <button class="btn btn-primary" type="submit">Отправить</button>
+    </form>
+{% endblock %}
